@@ -1,8 +1,9 @@
 import type { InferGetStaticPropsType } from 'next';
 import {
-  Text, Heading,
+  Text, Heading, Flex,
 } from 'rebass/styled-components';
 import ArticlePreview from '../components/articles-preview';
+import NavLink from '../components/basic/navlink';
 import Page from '../components/page';
 import { fetchArticles, fetchHomepage } from '../lib/api';
 
@@ -24,19 +25,35 @@ const Home = ({ homepage, articles }: InferGetStaticPropsType<typeof getStaticPr
   <Page seo={homepage.seo}>
     <Heading
       fontSize={5}
-      pb={2}
+      py={3}
       as="h1"
     >
       Kiosk Schranke
     </Heading>
 
     <Text
-      pb={2}
+      as="p"
+      pb={4}
+      variant="normalText"
     >
       { homepage.description }
     </Text>
 
-    <ArticlePreview articles={articles} />
+    <ArticlePreview
+      articles={articles}
+    />
+
+    <Flex
+      py={4}
+      justifyContent="center"
+    >
+      <NavLink
+        href="/blog"
+        isBigLink
+      >
+        Erfahre mehr
+      </NavLink>
+    </Flex>
   </Page>
 );
 

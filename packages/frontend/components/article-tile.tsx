@@ -1,6 +1,6 @@
 import PropTypes, { InferProps } from 'prop-types';
 import { FunctionComponent } from 'react';
-import { Card, Heading, Text } from 'rebass/styled-components';
+import { Card, Text } from 'rebass/styled-components';
 import Image from 'next/image';
 
 const ArticleTilePropTypes = {
@@ -12,10 +12,29 @@ const ArticleTilePropTypes = {
 const ArticleTile: FunctionComponent<InferProps<typeof ArticleTilePropTypes>> = (
   { title, description, imageUrl },
 ) => (
-  <Card>
+  <Card
+    p={2}
+    sx={{
+      borderWidth: '1px',
+      borderRadius: '5px',
+      borderColor: 'dark',
+      borderStyle: 'solid',
+    }}
+  >
     <Image src={imageUrl} width={200} height={200} layout="responsive" />
-    <Heading>{title}</Heading>
-    <Text>{description}</Text>
+    <Text
+      py={2}
+      as="p"
+      variant="normal"
+    >
+      {title}
+    </Text>
+    <Text
+      as="p"
+      variant="small"
+    >
+      {description}
+    </Text>
   </Card>
 );
 

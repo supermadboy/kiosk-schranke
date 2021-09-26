@@ -22,7 +22,7 @@ const ArticlePreview: FunctionComponent<InferProps<typeof ArticlePreviewPropType
   <Box
     sx={{
       display: 'grid',
-      gridGap: 1,
+      gridGap: 2,
       gridTemplateColumns: '1fr 1fr',
     }}
   >

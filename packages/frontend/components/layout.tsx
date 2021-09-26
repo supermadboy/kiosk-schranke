@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 import { NextComponentType } from 'next';
+import { Box } from 'rebass/styled-components';
 import Navbar from './navbar';
 
 const Layout: NextComponentType = ({ children }) => (
   <>
     <Navbar />
-    <main>{children}</main>
+    <Box
+      as="main"
+      px={2}
+    >
+      {children}
+    </Box>
   </>
 );
 

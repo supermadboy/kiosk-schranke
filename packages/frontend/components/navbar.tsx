@@ -1,9 +1,10 @@
 import { NextComponentType } from 'next';
 import { useState } from 'react';
 import {
-  Box, Flex, Link,
+  Box, Flex,
 } from 'rebass/styled-components';
 import MenuButton from './menu-button';
+import NavLink from './basic/navlink';
 
 const Navbar: NextComponentType = () => {
   const [isActive, setIsActive] = useState(false);
@@ -36,23 +37,27 @@ const Navbar: NextComponentType = () => {
         justifyContent="center"
         bg={['primaryBg', 'transparent']}
       >
-        <Link href="/">Home</Link>
-        <Link href="/blog">Blog</Link>
-        <Link href="/about">About</Link>
-        <Link href="/impressum">Impressum</Link>
+        <NavLink href="/">Home</NavLink>
+        <NavLink href="/blog">Blog</NavLink>
+        <NavLink href="/about">About</NavLink>
+        <NavLink href="/impressum">Impressum</NavLink>
       </Flex>
       <Box
         p={3}
         flexGrow={1}
+        display="flex"
+        alignItems="center"
         sx={{
           zIndex: 1,
         }}
         bg="primaryBg"
       >
-        <Link href="/">Kiosk Schranke</Link>
+        <NavLink href="/">Kiosk Schranke</NavLink>
       </Box>
       <Box
         p={3}
+        display="flex"
+        alignItems="center"
         sx={{
           zIndex: 3,
         }}
