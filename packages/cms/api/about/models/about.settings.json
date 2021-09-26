@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "homepages",
+  "collectionName": "abouts",
   "info": {
-    "name": "Homepage",
+    "name": "About",
     "description": ""
   },
   "options": {
@@ -10,6 +10,7 @@
     "timestamps": true,
     "draftAndPublish": false
   },
+  "pluginOptions": {},
   "attributes": {
     "seo": {
       "type": "component",
@@ -17,8 +18,8 @@
       "component": "shared.seo",
       "required": true
     },
-    "description": {
-      "type": "text",
+    "content": {
+      "type": "richtext",
       "required": true
     }
   }

@@ -1,15 +1,15 @@
 {
   "kind": "singleType",
-  "collectionName": "homepages",
+  "collectionName": "impressums",
   "info": {
-    "name": "Homepage",
-    "description": ""
+    "name": "Impressum"
   },
   "options": {
     "increments": true,
     "timestamps": true,
     "draftAndPublish": false
   },
+  "pluginOptions": {},
   "attributes": {
     "seo": {
       "type": "component",
@@ -17,8 +17,8 @@
       "component": "shared.seo",
       "required": true
     },
-    "description": {
-      "type": "text",
+    "impressum": {
+      "type": "richtext",
       "required": true
     }
   }

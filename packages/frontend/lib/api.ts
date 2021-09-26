@@ -18,6 +18,18 @@ export async function fetchHomepage(): Promise<Homepage> {
   return fetchAPI('/homepage');
 }
 
-export async function fetchArticles(limit?: number): Promise<Article[]> {
-  return fetchAPI(`/articles?_sort=created_at:DESC${limit ? `&_limit=${limit}` : ''}`);
+export async function fetchBlog(): Promise<Homepage> {
+  return fetchAPI('/blog');
+}
+
+export async function fetchAbout(): Promise<Homepage> {
+  return fetchAPI('/about');
+}
+
+export async function fetchImpressum(): Promise<Homepage> {
+  return fetchAPI('/impressum');
+}
+
+export async function fetchArticles(limit?: number, start?:number): Promise<Article[]> {
+  return fetchAPI(`/articles?_sort=created_at:DESC${limit ? `&_limit=${limit}` : ''}${start ? `&_start=${start}` : ''}`);
 }

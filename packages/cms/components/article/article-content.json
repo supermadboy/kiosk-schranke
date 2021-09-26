@@ -1,7 +1,7 @@
 {
   "collectionName": "components_article_article_contents",
   "info": {
-    "name": "article-content",
+    "name": "ArticleContent",
     "icon": "pager",
     "description": ""
   },

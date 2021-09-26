@@ -13,7 +13,7 @@ interface Image {
 interface Author {
   name: string,
   email: string,
-  picture: Image
+  picture?: Image
 }
 
 interface Category {
@@ -23,17 +23,31 @@ interface Category {
 interface Seo {
   metaTitle: string,
   metaDescription: string,
-  shareImage: Image
+  shareImage?: Image
 }
 
 interface ArticleContent {
   title: string,
   content: string,
-  image: Image
+  image?: Image
 }
 
 export interface Homepage {
   description: string;
+  seo: Seo
+}
+
+export interface Blog {
+  seo: Seo
+}
+
+export interface About {
+  content: string;
+  seo: Seo
+}
+
+export interface Impressum {
+  impressum: string;
   seo: Seo
 }
 
