@@ -1,13 +1,13 @@
-import { Homepage } from '../models';
+import { Homepage, Article } from '../models';
 
-export function getStrapiURL(path: string) {
+function getStrapiURL(path: string) {
   return `${
     process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'
   }${path}`;
 }
 
 // Helper to make GET requests to Strapi
-export async function fetchAPI(path: string) {
+async function fetchAPI(path: string) {
   const requestUrl = getStrapiURL(path);
   const response = await fetch(requestUrl);
   const data = await response.json();
@@ -16,4 +16,8 @@ export async function fetchAPI(path: string) {
 
 export async function fetchHomepage(): Promise<Homepage> {
   return fetchAPI('/homepage');
+}
+
+export async function fetchArticles(limit?: number): Promise<Article[]> {
+  return fetchAPI(`/articles?_sort=created_at:DESC${limit ? `&_limit=${limit}` : ''}`);
 }

@@ -17,12 +17,9 @@
       "required": true
     },
     "description": {
-      "type": "text",
-      "required": true
-    },
-    "content": {
-      "type": "richtext",
-      "required": true
+      "type": "string",
+      "required": true,
+      "maxLength": 128
     },
     "slug": {
       "type": "uid",
@@ -48,6 +45,13 @@
     "author": {
       "via": "articles",
       "model": "writer"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "article.article-content"
+      ],
+      "min": 1
     }
   }
 }
