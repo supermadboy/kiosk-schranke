@@ -1,13 +1,15 @@
-import { DefaultTheme } from "styled-components";
+import { DefaultTheme } from 'styled-components';
 
-export const theme: DefaultTheme = {
+const theme: DefaultTheme = {
   colors: {
-    primary: 'red' ,
+    primary: 'red',
   },
   buttons: {
     primary: {
       color: 'gray',
-      bg: 'green'
-    }
-  }
-}
+      bg: 'green',
+    },
+  },
+};
+
+export default theme;
