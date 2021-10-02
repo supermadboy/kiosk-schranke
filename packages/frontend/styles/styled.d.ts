@@ -14,6 +14,10 @@ declare module 'styled-components' {
       heading: number,
     },
     text: {
+      big: {
+        lineHeight: string,
+        fontSize: number,
+      }
       normal: {
         lineHeight: string,
         fontSize: number,

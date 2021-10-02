@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 import { Text as RebassText } from 'rebass/styled-components';
 
 const TextPropTypes = {
-  variant: PropTypes.oneOf(['smallText', 'normalText']),
+  variant: PropTypes.oneOf(['small', 'normal', 'big']),
   children: PropTypes.node.isRequired,
 };
 
@@ -21,7 +21,7 @@ const Text: FunctionComponent<InferProps<typeof TextPropTypes>> = (
 Text.propTypes = TextPropTypes;
 
 Text.defaultProps = {
-  variant: 'normalText',
+  variant: 'normal',
 };
 
 export default Text;

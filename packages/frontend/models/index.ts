@@ -33,7 +33,7 @@ interface ArticleContent {
 }
 
 export interface Homepage {
-  description: string;
+  content: string;
   seo: Seo;
 }
 

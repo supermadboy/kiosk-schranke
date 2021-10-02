@@ -17,6 +17,10 @@ const theme: DefaultTheme = {
     heading: 1.3,
   },
   text: {
+    big: {
+      lineHeight: 'heading',
+      fontSize: 3,
+    },
     normal: {
       lineHeight: 'body',
       fontSize: 1,

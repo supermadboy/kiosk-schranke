@@ -17,7 +17,7 @@
       "component": "shared.seo",
       "required": true
     },
-    "description": {
+    "content": {
       "type": "richtext",
       "required": true
     }

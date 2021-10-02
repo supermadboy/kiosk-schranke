@@ -4,21 +4,28 @@ import {
 } from 'rebass/styled-components';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import { fetchHomepage } from '../lib/api';
+import { fetchAbout } from '../lib/api';
 import Page from '../components/page';
+import Text from '../components/basic/text';
 
 export const getStaticProps = async () => {
-  const homepage = await fetchHomepage();
+  const about = await fetchAbout();
 
   return {
     props: {
-      homepage,
+      about,
     },
   };
 };
 
-const Home = ({ homepage }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Page seo={homepage.seo}>
+const About = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => (
+  <Page seo={about.seo}>
+
+    <Text
+      variant="big"
+    >
+      WER?
+    </Text>
 
     <Box
       pr={13}
@@ -28,10 +35,10 @@ const Home = ({ homepage }: InferGetStaticPropsType<typeof getStaticProps>) => (
     </Box>
 
     <ReactMarkdown>
-      {homepage.content}
+      {about.content}
     </ReactMarkdown>
 
   </Page>
 );
 
-export default Home;
+export default About;
