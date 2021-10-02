@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  cms:
+    build:
+      context: ./packages/cms
+    ports:
+      - 1337:1337
+    volumes:
+      - .tmp:/app/.tmp
+  frontend:
+    build:
+      context: ./packages/frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - cms
+  bash:
+    image: curlimages/curl
+    command: tail -F /var
