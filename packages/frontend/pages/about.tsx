@@ -21,11 +21,15 @@ export const getStaticProps = async () => {
 const About = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Page seo={about.seo}>
 
-    <Text
-      variant="big"
+    <Box
+      mb={7}
     >
-      WER?
-    </Text>
+      <Text
+        variant="big"
+      >
+        WER?
+      </Text>
+    </Box>
 
     <Box
       pr={13}

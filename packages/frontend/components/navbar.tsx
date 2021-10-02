@@ -38,7 +38,7 @@ const Navbar: NextComponentType = () => {
         bg={['primaryBg', 'transparent']}
       >
         <NavLink href="/">Home</NavLink>
-        <NavLink href="/blog">Blog</NavLink>
+        <NavLink href="/diary">Tagebuch</NavLink>
         <NavLink href="/about">About</NavLink>
         <NavLink href="/impressum">Impressum</NavLink>
       </Flex>

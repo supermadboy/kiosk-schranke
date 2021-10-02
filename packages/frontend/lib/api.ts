@@ -1,4 +1,6 @@
-import { Homepage, Article } from '../models';
+import {
+  Homepage, Article, Diary, About, Impressum,
+} from '../models';
 
 function getStrapiURL(path: string) {
   return `${
@@ -10,6 +12,7 @@ function getStrapiURL(path: string) {
 async function fetchAPI(path: string) {
   const requestUrl = getStrapiURL(path);
   const response = await fetch(requestUrl);
+  console.log(response);
   const data = await response.json();
   return data;
 }
@@ -18,15 +21,15 @@ export async function fetchHomepage(): Promise<Homepage> {
   return fetchAPI('/homepage');
 }
 
-export async function fetchBlog(): Promise<Homepage> {
-  return fetchAPI('/blog');
+export async function fetchDiary(): Promise<Diary> {
+  return fetchAPI('/diary');
 }
 
-export async function fetchAbout(): Promise<Homepage> {
+export async function fetchAbout(): Promise<About> {
   return fetchAPI('/about');
 }
 
-export async function fetchImpressum(): Promise<Homepage> {
+export async function fetchImpressum(): Promise<Impressum> {
   return fetchAPI('/impressum');
 }
 

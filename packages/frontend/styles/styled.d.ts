@@ -26,7 +26,7 @@ declare module 'styled-components' {
         lineHeight: string,
         fontSize: number,
       }
-    }
+    },
     variants: {
       bigLink: {
         fontSize: number,

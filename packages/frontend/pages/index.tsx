@@ -6,6 +6,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { fetchHomepage } from '../lib/api';
 import Page from '../components/page';
+import Text from '../components/basic/text';
 
 export const getStaticProps = async () => {
   const homepage = await fetchHomepage();
@@ -25,6 +26,16 @@ const Home = ({ homepage }: InferGetStaticPropsType<typeof getStaticProps>) => (
       mb={7}
     >
       <Image src="/platzhalter.svg" width={192} height={100} layout="responsive" />
+    </Box>
+
+    <Box
+      mb={7}
+    >
+      <Text
+        variant="big"
+      >
+        HELLO!
+      </Text>
     </Box>
 
     <ReactMarkdown>

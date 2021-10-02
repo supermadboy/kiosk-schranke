@@ -1,8 +1,9 @@
 {
   "kind": "singleType",
-  "collectionName": "impressums",
+  "collectionName": "",
   "info": {
-    "name": "Impressum"
+    "name": "Impressum",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -15,10 +16,6 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo",
-      "required": true
-    },
-    "impressum": {
-      "type": "richtext",
       "required": true
     }
   }
