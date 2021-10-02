@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   colors: {
-    primaryBg: '#eee',
+    primaryBg: '#fff',
     dark: '#000',
     text: '#000',
   },
@@ -10,7 +10,7 @@ const theme: DefaultTheme = {
     '.75rem', '1rem', '1.5rem', '1.75rem', '2rem', '2.5rem', '3rem', '4rem',
   ],
   space: [
-    '.25rem', '.5rem', '.75rem', '1rem', '1.25rem', '1.5rem', '1.75rem', '2rem', '3rem', '4rem',
+    '.25rem', '.5rem', '.75rem', '1rem', '1.25rem', '1.5rem', '1.75rem', '2rem', '3rem', '4rem', '6rem', '8rem', '10rem', '12rem',
   ],
   lineHeights: {
     body: 1,

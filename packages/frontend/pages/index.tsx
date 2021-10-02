@@ -1,59 +1,38 @@
 import type { InferGetStaticPropsType } from 'next';
 import {
-  Text, Heading, Flex,
+  Text, Box, Flex,
 } from 'rebass/styled-components';
-import ArticlePreview from '../components/articles-preview';
-import NavLink from '../components/basic/navlink';
+import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
+import { fetchHomepage } from '../lib/api';
 import Page from '../components/page';
-import { fetchArticles, fetchHomepage } from '../lib/api';
 
 export const getStaticProps = async () => {
-  const [homepage, articles] = await Promise.all([
+  const [homepage] = await Promise.all([
     fetchHomepage(),
-    fetchArticles(4),
   ]);
 
   return {
     props: {
       homepage,
-      articles,
     },
   };
 };
 
-const Home = ({ homepage, articles }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Home = ({ homepage }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Page seo={homepage.seo}>
-    <Heading
-      fontSize={5}
-      py={3}
-      as="h1"
-    >
-      Kiosk Schranke
-    </Heading>
 
-    <Text
-      as="p"
-      pb={4}
-      variant="normalText"
+    <Box
+      pr={13}
+      mb={7}
     >
-      { homepage.description }
-    </Text>
+      <Image src="/platzhalter.svg" width={192} height={100} layout="responsive" />
+    </Box>
 
-    <ArticlePreview
-      articles={articles}
-    />
+    <ReactMarkdown>
+      {homepage.description}
+    </ReactMarkdown>
 
-    <Flex
-      py={4}
-      justifyContent="center"
-    >
-      <NavLink
-        href="/blog"
-        isBigLink
-      >
-        Erfahre mehr
-      </NavLink>
-    </Flex>
   </Page>
 );
 

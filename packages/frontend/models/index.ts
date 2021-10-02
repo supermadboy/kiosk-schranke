@@ -34,7 +34,7 @@ interface ArticleContent {
 
 export interface Homepage {
   description: string;
-  seo: Seo
+  seo: Seo;
 }
 
 export interface Blog {

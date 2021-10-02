@@ -8,7 +8,7 @@ const Layout: NextComponentType = ({ children }) => (
     <Navbar />
     <Box
       as="main"
-      px={2}
+      px={4}
     >
       {children}
     </Box>

@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "blogs",
   "info": {
-    "name": "Blog",
+    "name": "Diary",
     "description": ""
   },
   "options": {
