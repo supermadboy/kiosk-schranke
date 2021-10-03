@@ -7,35 +7,56 @@ const ArticleTilePropTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
+  publishDate: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 const ArticleTile: FunctionComponent<InferProps<typeof ArticleTilePropTypes>> = (
-  { title, description, imageUrl },
+  {
+    title, description, imageUrl, publishDate, id,
+  },
 ) => (
-  <Card
-    p={2}
-    sx={{
-      borderWidth: '1px',
-      borderRadius: '5px',
-      borderColor: 'dark',
-      borderStyle: 'solid',
-    }}
+  <a
+    href={`/article/${id}`}
   >
-    <Image src={imageUrl} width={200} height={200} layout="responsive" />
-    <Text
-      py={2}
-      as="p"
-      variant="normal"
+    <Card
+      p={2}
+      sx={{
+        borderWidth: '1px',
+        borderRadius: '5px',
+        borderColor: 'dark',
+        borderStyle: 'solid',
+        cursor: 'pointer',
+      }}
     >
-      {title}
-    </Text>
-    <Text
-      as="p"
-      variant="small"
-    >
-      {description}
-    </Text>
-  </Card>
+      <Text
+        as="p"
+        variant="small"
+      >
+        { (new Date(publishDate)).toISOString().substr(0, 10) }
+      </Text>
+      <Image src={imageUrl} width={200} height={200} layout="responsive" />
+      <Text
+        mt={2}
+        as="p"
+        variant="normal"
+      >
+        {title}
+      </Text>
+      <Text
+        as="p"
+        variant="small"
+      >
+        {description}
+      </Text>
+      <Text
+        as="p"
+        variant="small"
+      >
+        ...mehr
+      </Text>
+    </Card>
+  </a>
 );
 
 ArticleTile.propTypes = ArticleTilePropTypes;

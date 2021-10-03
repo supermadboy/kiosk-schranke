@@ -1,10 +1,9 @@
 import type { InferGetStaticPropsType } from 'next';
 import {
-  Box, Flex,
+  Box, Flex, Text,
 } from 'rebass/styled-components';
 import { fetchImpressum } from '../lib/api';
 import Page from '../components/page';
-import Text from '../components/basic/text';
 
 export const getStaticProps = async () => {
   const impressum = await fetchImpressum();
@@ -28,6 +27,7 @@ const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>
       >
         <Text
           variant="big"
+          as="h1"
         >
           WO?
         </Text>
@@ -39,7 +39,9 @@ const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>
         <Box
           pb={4}
         >
-          <Text>
+          <Text
+            as="p"
+          >
             <b>Kulturkiosk schranke</b>
           </Text>
         </Box>
@@ -47,15 +49,21 @@ const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>
         <Box
           pb={4}
         >
-          <Text>
+          <Text
+            as="p"
+          >
             <b>Inhaber:</b>
             {' '}
             Moritz Schneinder
           </Text>
-          <Text>
+          <Text
+            as="p"
+          >
             Moltkestr. 17
           </Text>
-          <Text>
+          <Text
+            as="p"
+          >
             78467 Konstanz (Petershausen)
           </Text>
         </Box>
@@ -63,14 +71,18 @@ const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>
         <Box
           pb={1}
         >
-          <Text>
+          <Text
+            as="p"
+          >
             <b>Konzept&amp;Gestalgung:</b>
             {' '}
             Selina Vix
           </Text>
         </Box>
 
-        <Text>
+        <Text
+          as="p"
+        >
           <b>Programmierung:</b>
           {' '}
           Markus Szarvas

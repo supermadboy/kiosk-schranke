@@ -1,12 +1,11 @@
 import type { InferGetStaticPropsType } from 'next';
 import {
-  Box,
+  Box, Text,
 } from 'rebass/styled-components';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { fetchHomepage } from '../lib/api';
 import Page from '../components/page';
-import Text from '../components/basic/text';
 
 export const getStaticProps = async () => {
   const homepage = await fetchHomepage();
@@ -33,6 +32,7 @@ const Home = ({ homepage }: InferGetStaticPropsType<typeof getStaticProps>) => (
     >
       <Text
         variant="big"
+        as="h1"
       >
         HELLO!
       </Text>

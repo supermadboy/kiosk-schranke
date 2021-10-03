@@ -60,4 +60,6 @@ export interface Article {
   author: Author;
   category: Category;
   content: ArticleContent[];
+  // eslint-disable-next-line
+  published_at: string;
 }

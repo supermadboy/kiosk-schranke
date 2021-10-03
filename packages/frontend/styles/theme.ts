@@ -20,14 +20,17 @@ const theme: DefaultTheme = {
     big: {
       lineHeight: 'heading',
       fontSize: 3,
+      marginBottom: 2,
     },
     normal: {
       lineHeight: 'body',
       fontSize: 1,
+      marginBottom: 2,
     },
     small: {
       lineHeight: 'body',
       fontSize: 0,
+      marginBottom: 1,
     },
   },
   variants: {

@@ -3,6 +3,12 @@ body {
   font-family: "tex-gyre-heros";
 }
 
+a {
+  color: black;
+  border: 0;
+  text-decoration: none;
+}
+
 h1 {
   font-family: "tex-gyre-heros";
   font-size: 2rem;

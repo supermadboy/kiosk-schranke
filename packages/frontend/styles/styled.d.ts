@@ -17,14 +17,17 @@ declare module 'styled-components' {
       big: {
         lineHeight: string,
         fontSize: number,
+        marginBottom: number,
       }
       normal: {
         lineHeight: string,
         fontSize: number,
+        marginBottom: number,
       }
       small: {
         lineHeight: string,
         fontSize: number,
+        marginBottom: number,
       }
     },
     variants: {
