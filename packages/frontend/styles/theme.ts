@@ -13,8 +13,8 @@ const theme: DefaultTheme = {
     '.25rem', '.5rem', '.75rem', '1rem', '1.25rem', '1.5rem', '1.75rem', '2rem', '3rem', '4rem', '6rem', '8rem', '10rem', '12rem',
   ],
   lineHeights: {
-    body: 1,
-    heading: 1.3,
+    body: 1.3,
+    heading: 1.5,
   },
   text: {
     big: {

@@ -34,12 +34,21 @@ const About = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => (
     <Box
       pr={8}
       mb={7}
+      maxWidth="700px"
+      sx={{
+        display: ['block', 'none'],
+      }}
     >
       <Image src="/platzhalter_idee.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
     </Box>
 
     <Box
-      mb={7}
+      m={[0, 'auto']}
+      mb={[7, 7]}
+      maxWidth="700px"
+      sx={{
+        textAlign: ['left', 'center'],
+      }}
     >
       <ReactMarkdown>
         {about.content}

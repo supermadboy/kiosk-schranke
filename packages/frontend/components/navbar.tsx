@@ -33,9 +33,10 @@ const Navbar: NextComponentType = () => {
   return (
     <Flex
       as="header"
-      height="130px"
+      height="150px"
       sx={{
         position: 'relative',
+        zIndex: [1, 0],
       }}
       ref={ref}
     >
@@ -45,13 +46,15 @@ const Navbar: NextComponentType = () => {
         marginRight={[0, 5]}
         sx={{
           position: 'absolute',
-          top: ['130px', '0'],
+          top: ['150px', '0'],
           transform: `translatey(${isActive ? '0' : '-100%'})`,
           transition: '1s transform',
           zIndex: [1, 2],
           borderBottom: '1px solid black',
+          borderWidth: ['1px', '0'],
           a: {
-            marginBottom: [2],
+            marginBottom: [2, 0],
+            marginRight: [0, 2],
           },
         }}
         flexDirection={['column', 'row']}
@@ -60,8 +63,8 @@ const Navbar: NextComponentType = () => {
         bg={['primaryBg', 'transparent']}
       >
         <NavLink href="/">Home</NavLink>
+        <NavLink href="/about">Über uns</NavLink>
         <NavLink href="/diary">Tagebuch</NavLink>
-        <NavLink href="/about">About</NavLink>
         <NavLink href="/impressum">Impressum</NavLink>
       </Flex>
       <Box

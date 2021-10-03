@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
 const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Page seo={impressum.seo}>
     <Flex
-      minHeight="calc(100vh - 150px)"
+      minHeight="calc(100vh - 170px)"
       flexDirection="column"
       justifyContent="space-between"
     >
@@ -42,7 +42,7 @@ const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>
           <Text
             as="p"
           >
-            <b>Kulturkiosk schranke</b>
+            <b>Kulturkiosk Schranke</b>
           </Text>
         </Box>
 
@@ -54,7 +54,7 @@ const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>
           >
             <b>Inhaber:</b>
             {' '}
-            Moritz Schneinder
+            Moritz Schneider
           </Text>
           <Text
             as="p"
@@ -74,7 +74,7 @@ const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>
           <Text
             as="p"
           >
-            <b>Konzept&amp;Gestalgung:</b>
+            <b>Konzept &amp; Gestalgung:</b>
             {' '}
             Selina Vix
           </Text>

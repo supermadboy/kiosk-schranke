@@ -58,7 +58,7 @@ const Diary = ({ diary, articles }: InferGetStaticPropsType<typeof getStaticProp
           slug={article.slug}
           title={article.title}
           description={article.description}
-          imageUrl={`http://localhost:1337${article.image.url}`}
+          imageUrl={article.image?.url}
           publishDate={article.published_at}
         />
 

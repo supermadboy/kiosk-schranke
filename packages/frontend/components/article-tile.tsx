@@ -6,7 +6,7 @@ import Image from 'next/image';
 const ArticleTilePropTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   publishDate: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
 };
@@ -17,15 +17,10 @@ const ArticleTile: FunctionComponent<InferProps<typeof ArticleTilePropTypes>> = 
   },
 ) => (
   <a
-    href={`/article/${slug}`}
+    href={`/diary-entry/${slug}`}
   >
     <Card
-      p={2}
       sx={{
-        borderWidth: '1px',
-        borderRadius: '5px',
-        borderColor: 'dark',
-        borderStyle: 'solid',
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',
@@ -38,10 +33,10 @@ const ArticleTile: FunctionComponent<InferProps<typeof ArticleTilePropTypes>> = 
           as="p"
           variant="small"
         >
-          { (new Date(publishDate)).toISOString().substr(0, 10) }
+          { (new Date(publishDate)).toLocaleDateString('de-DE') }
         </Text>
 
-        <Image src={imageUrl} width={200} height={200} layout="responsive" />
+        <Image src={imageUrl ? `http://localhost:1337${imageUrl}` : '/platzhalter.svg'} width={200} height={100} layout="responsive" />
 
         <Text
           mt={2}
@@ -74,4 +69,7 @@ const ArticleTile: FunctionComponent<InferProps<typeof ArticleTilePropTypes>> = 
 
 ArticleTile.propTypes = ArticleTilePropTypes;
 
+ArticleTile.defaultProps = {
+  imageUrl: undefined,
+};
 export default ArticleTile;

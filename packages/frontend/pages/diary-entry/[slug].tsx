@@ -2,12 +2,10 @@ import type { InferGetServerSidePropsType } from 'next';
 import {
   Text, Box,
 } from 'rebass/styled-components';
-import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import { alignContent } from 'styled-system';
+import Image from 'next/image';
 import Page from '../../components/page';
 import { fetchArticle } from '../../lib/api';
-import { ArticleContent } from '../../models';
 
 export const getServerSideProps = async (context: any) => {
   const article = await fetchArticle(context.params.slug);
@@ -40,7 +38,7 @@ const Article = ({ article }: InferGetServerSidePropsType<typeof getServerSidePr
         as="p"
         variant="small"
       >
-        { (new Date(article.published_at)).toISOString().substr(0, 10)}
+        { (new Date(article.published_at)).toLocaleDateString('de-DE')}
       </Text>
       <Text
         as="p"
@@ -50,30 +48,15 @@ const Article = ({ article }: InferGetServerSidePropsType<typeof getServerSidePr
       </Text>
     </Box>
 
-    {
-      article.content.map((content: ArticleContent) => (
-        <div
-          key={content.id}
-        >
+    <Box
+      mb={7}
+    >
+      <Image src={article.image?.url ? `http://localhost:1337${article.image.url}` : '/platzhalter.svg'} width={200} height={100} layout="responsive" />
+    </Box>
 
-          {
-            content.image
-            && (
-            <Box
-              mb={6}
-            >
-              <Image src={`http://localhost:1337${content.image?.url}`} width={200} height={100} layout="responsive" objectFit="contain" />
-            </Box>
-            )
-          }
-
-          <ReactMarkdown>
-            {content.content}
-          </ReactMarkdown>
-
-        </div>
-      ))
-    }
+    <ReactMarkdown>
+      {article.content}
+    </ReactMarkdown>
 
   </Page>
 );

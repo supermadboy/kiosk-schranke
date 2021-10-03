@@ -26,13 +26,6 @@ interface Seo {
   shareImage?: Image;
 }
 
-export interface ArticleContent {
-  title: string;
-  content: string;
-  image?: Image;
-  id: number;
-}
-
 export interface Homepage {
   content: string;
   seo: Seo;
@@ -58,10 +51,10 @@ export interface Article {
   title: string;
   slug: string;
   description: string;
-  image: Image;
+  image?: Image;
   author: Author;
   category: Category;
-  content: ArticleContent[];
+  content: string;
   // eslint-disable-next-line
   published_at: string;
 }
