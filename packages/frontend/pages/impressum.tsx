@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
 const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Page seo={impressum.seo}>
     <Flex
-      minHeight="calc(100vh - 55px)"
+      minHeight="calc(100vh - 150px)"
       flexDirection="column"
       justifyContent="space-between"
     >

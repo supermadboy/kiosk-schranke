@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import {
   Box, Flex,
 } from 'rebass/styled-components';
+import Image from 'next/image';
 import MenuButton from './menu-button';
 import NavLink from './basic/navlink';
 
@@ -32,7 +33,7 @@ const Navbar: NextComponentType = () => {
   return (
     <Flex
       as="header"
-      height="55px"
+      height="130px"
       sx={{
         position: 'relative',
       }}
@@ -44,7 +45,7 @@ const Navbar: NextComponentType = () => {
         marginRight={[0, 5]}
         sx={{
           position: 'absolute',
-          top: ['55px', '0'],
+          top: ['130px', '0'],
           transform: `translatey(${isActive ? '0' : '-100%'})`,
           transition: '1s transform',
           zIndex: [1, 2],
@@ -70,15 +71,18 @@ const Navbar: NextComponentType = () => {
         alignItems="center"
         sx={{
           zIndex: 1,
+          position: 'relative',
         }}
         bg="primaryBg"
       >
-        <NavLink href="/">Kiosk Schranke</NavLink>
+        <a href="/">
+          <Image src="/logo.gif" width="160px" height="120px" objectFit="contain" />
+        </a>
       </Box>
       <Box
         p={3}
         display="flex"
-        alignItems="center"
+        alignItems="flex-start"
         sx={{
           zIndex: 3,
         }}

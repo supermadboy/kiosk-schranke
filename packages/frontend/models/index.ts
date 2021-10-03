@@ -26,10 +26,11 @@ interface Seo {
   shareImage?: Image;
 }
 
-interface ArticleContent {
+export interface ArticleContent {
   title: string;
   content: string;
   image?: Image;
+  id: number;
 }
 
 export interface Homepage {
@@ -55,6 +56,7 @@ export interface Article {
   seo: Seo;
   id: number;
   title: string;
+  slug: string;
   description: string;
   image: Image;
   author: Author;

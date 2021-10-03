@@ -13,7 +13,6 @@ async function fetchAPI(path: string) {
   const requestUrl = getStrapiURL(path);
   const response = await fetch(requestUrl);
   const data = await response.json();
-  console.log(data);
   return data;
 }
 
@@ -35,4 +34,8 @@ export async function fetchImpressum(): Promise<Impressum> {
 
 export async function fetchArticles(limit?: number, start?:number): Promise<Article[]> {
   return fetchAPI(`/articles?_sort=created_at:DESC${limit ? `&_limit=${limit}` : ''}${start ? `&_start=${start}` : ''}`);
+}
+
+export async function fetchArticle(slug: string): Promise<Article> {
+  return fetchAPI(`/articles/${slug}`);
 }

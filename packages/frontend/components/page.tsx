@@ -17,7 +17,11 @@ const Page: FunctionComponent<InferProps<typeof PagePropTypes>> = (
 ) => (
   <Box>
     <Head>
-      <title>{ seo.metaTitle }</title>
+      <title>
+        Kiosk Schranke |
+        {' '}
+        { seo.metaTitle }
+      </title>
       <meta name="description" content={seo.metaDescription} />
       {
         seo.shareImage && (<meta name="image" content={`http://localhost:1337${seo.shareImage.url}`} />)

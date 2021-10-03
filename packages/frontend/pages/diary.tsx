@@ -35,9 +35,13 @@ const Diary = ({ diary, articles }: InferGetStaticPropsType<typeof getStaticProp
       </Text>
     </Box>
 
-    <ReactMarkdown>
-      {diary.content}
-    </ReactMarkdown>
+    <Box
+      mb={7}
+    >
+      <ReactMarkdown>
+        {diary.content}
+      </ReactMarkdown>
+    </Box>
 
     <Box
       sx={{
@@ -51,7 +55,7 @@ const Diary = ({ diary, articles }: InferGetStaticPropsType<typeof getStaticProp
       articles.map((article) => (
         <ArticleTile
           key={article.id}
-          id={article.id}
+          slug={article.slug}
           title={article.title}
           description={article.description}
           imageUrl={`http://localhost:1337${article.image.url}`}

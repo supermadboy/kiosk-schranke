@@ -25,6 +25,7 @@ const Layout: NextComponentType = ({ children }) => (
     <Box
       as="main"
       px={4}
+      pb={4}
     >
       {children}
     </Box>

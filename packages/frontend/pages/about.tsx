@@ -35,12 +35,18 @@ const About = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => (
       pr={8}
       mb={7}
     >
-      <Image src="/platzhalter.svg" width={192} height={100} layout="responsive" />
+      <Image src="/platzhalter_idee.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
     </Box>
 
-    <ReactMarkdown>
-      {about.content}
-    </ReactMarkdown>
+    <Box
+      mb={7}
+    >
+      <ReactMarkdown>
+        {about.content}
+      </ReactMarkdown>
+    </Box>
+
+    <Image src="/platzhalter_foto.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
 
   </Page>
 );

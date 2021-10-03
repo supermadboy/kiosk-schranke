@@ -1,3 +1,6 @@
+body, html {
+  margin: 0;
+}
 
 body {
   font-family: "tex-gyre-heros";
