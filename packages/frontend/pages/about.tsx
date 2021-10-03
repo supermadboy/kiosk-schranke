@@ -32,7 +32,7 @@ const About = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => (
     </Box>
 
     <Box
-      pr={13}
+      pr={8}
       mb={7}
     >
       <Image src="/platzhalter.svg" width={192} height={100} layout="responsive" />

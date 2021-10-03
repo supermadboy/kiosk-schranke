@@ -1,5 +1,5 @@
 import { NextComponentType } from 'next';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Box, Flex,
 } from 'rebass/styled-components';
@@ -8,10 +8,26 @@ import NavLink from './basic/navlink';
 
 const Navbar: NextComponentType = () => {
   const [isActive, setIsActive] = useState(false);
+  const ref = useRef<HTMLElement>();
 
   const toggleMenu = () => {
     setIsActive(!isActive);
   };
+
+  const handleClickOutside = (event: any) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      if (isActive) {
+        setIsActive(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  });
 
   return (
     <Flex
@@ -20,6 +36,7 @@ const Navbar: NextComponentType = () => {
       sx={{
         position: 'relative',
       }}
+      ref={ref}
     >
       <Flex
         width="100%"
@@ -30,7 +47,11 @@ const Navbar: NextComponentType = () => {
           top: ['55px', '0'],
           transform: `translatey(${isActive ? '0' : '-100%'})`,
           transition: '1s transform',
-          zIndex: [0, 2],
+          zIndex: [1, 2],
+          borderBottom: '1px solid black',
+          a: {
+            marginBottom: [2],
+          },
         }}
         flexDirection={['column', 'row']}
         alignItems="center"
