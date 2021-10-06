@@ -78,9 +78,9 @@ const Navbar: NextComponentType = () => {
         }}
         bg="primaryBg"
       >
-        <a href="/">
+        <NavLink href="/">
           <Image src="/logo.gif" width="160px" height="120px" objectFit="contain" />
-        </a>
+        </NavLink>
       </Box>
       <Box
         p={3}

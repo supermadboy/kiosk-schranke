@@ -5,7 +5,7 @@ import {
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 import Page from '../../components/page';
-import { fetchArticle } from '../../lib/api';
+import { fetchArticle, getStrapiURL } from '../../lib/api';
 
 export const getServerSideProps = async (context: any) => {
   const article = await fetchArticle(context.params.slug);
@@ -51,7 +51,7 @@ const Article = ({ article }: InferGetServerSidePropsType<typeof getServerSidePr
     <Box
       mb={7}
     >
-      <Image src={article.image?.url ? `http://localhost:1337${article.image.url}` : '/platzhalter.svg'} width={200} height={100} layout="responsive" />
+      <Image src={article.image?.url ? getStrapiURL(article.image.url) : '/platzhalter.svg'} width={200} height={100} layout="responsive" />
     </Box>
 
     <ReactMarkdown>

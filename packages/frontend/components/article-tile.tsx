@@ -2,6 +2,7 @@ import PropTypes, { InferProps } from 'prop-types';
 import { FunctionComponent } from 'react';
 import { Card, Text, Box } from 'rebass/styled-components';
 import Image from 'next/image';
+import { getStrapiURL } from '../lib/api';
 
 const ArticleTilePropTypes = {
   title: PropTypes.string.isRequired,
@@ -36,7 +37,7 @@ const ArticleTile: FunctionComponent<InferProps<typeof ArticleTilePropTypes>> = 
           { (new Date(publishDate)).toLocaleDateString('de-DE') }
         </Text>
 
-        <Image src={imageUrl ? `http://localhost:1337${imageUrl}` : '/platzhalter.svg'} width={200} height={100} layout="responsive" />
+        <Image src={imageUrl ? getStrapiURL(imageUrl) : '/platzhalter.svg'} width={200} height={100} layout="responsive" />
 
         <Text
           mt={2}

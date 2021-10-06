@@ -6,4 +6,6 @@ module.exports = ({ env }) => ({
       secret: env('ADMIN_JWT_SECRET', '6839f6eafa17648e0c0daaec9f08d60a'),
     },
   },
+  url: 'https://kulturkiosk-schranke.de/api',
+
 });

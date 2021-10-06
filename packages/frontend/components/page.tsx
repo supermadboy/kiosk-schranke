@@ -2,6 +2,7 @@ import PropTypes, { InferProps } from 'prop-types';
 import { FunctionComponent } from 'react';
 import { Box } from 'rebass/styled-components';
 import Head from 'next/head';
+import { getStrapiURL } from '../lib/api';
 
 const PagePropTypes = {
   seo: PropTypes.shape({
@@ -24,7 +25,7 @@ const Page: FunctionComponent<InferProps<typeof PagePropTypes>> = (
       </title>
       <meta name="description" content={seo.metaDescription} />
       {
-        seo.shareImage && (<meta name="image" content={`http://localhost:1337${seo.shareImage.url}`} />)
+        seo.shareImage && (<meta name="image" content={getStrapiURL(seo.shareImage.url)} />)
       }
     </Head>
 

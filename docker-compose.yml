@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   cms:
+    container_name: schranke_cms
     build:
       context: ./packages/cms
     ports:
@@ -8,12 +9,10 @@ services:
     volumes:
       - .tmp:/app/.tmp
   frontend:
+    container_name: schranke_frontend
     build:
       context: ./packages/frontend
     ports:
-      - 3000:3000
+      - 1338:1338
     depends_on:
       - cms
-  bash:
-    image: curlimages/curl
-    command: tail -F /var
