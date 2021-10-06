@@ -1,11 +1,11 @@
-import type { InferGetStaticPropsType } from 'next';
+import type { InferGetServerSidePropsType } from 'next';
 import {
   Box, Flex, Text,
 } from 'rebass/styled-components';
 import { fetchImpressum } from '../lib/api';
 import Page from '../components/page';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const impressum = await fetchImpressum();
 
   return {
@@ -15,7 +15,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const Impressum = ({ impressum }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Impressum = ({ impressum }: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Page seo={impressum.seo}>
     <Flex
       minHeight="calc(100vh - 170px)"

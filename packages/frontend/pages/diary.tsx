@@ -1,4 +1,4 @@
-import type { InferGetStaticPropsType } from 'next';
+import type { InferGetServerSidePropsType } from 'next';
 import ReactMarkdown from 'react-markdown';
 import {
   Box, Text,
@@ -7,7 +7,7 @@ import { fetchArticles, fetchDiary } from '../lib/api';
 import Page from '../components/page';
 import ArticleTile from '../components/article-tile';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const [diary, articles] = await Promise.all([
     fetchDiary(),
     fetchArticles(),
@@ -21,7 +21,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const Diary = ({ diary, articles }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Diary = ({ diary, articles }: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Page seo={diary.seo}>
 
     <Box

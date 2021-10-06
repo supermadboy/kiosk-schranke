@@ -1,4 +1,4 @@
-import type { InferGetStaticPropsType } from 'next';
+import type { InferGetServerSidePropsType } from 'next';
 import {
   Box, Flex,
 } from 'rebass/styled-components';
@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { fetchHomepage } from '../lib/api';
 import Page from '../components/page';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const homepage = await fetchHomepage();
 
   return {
@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const Home = ({ homepage }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Page seo={homepage.seo}>
     <Flex
       flexDirection="column"

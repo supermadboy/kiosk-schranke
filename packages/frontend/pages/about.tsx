@@ -1,4 +1,4 @@
-import type { InferGetStaticPropsType } from 'next';
+import type { InferGetServerSidePropsType } from 'next';
 import {
   Box, Text,
 } from 'rebass/styled-components';
@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { fetchAbout } from '../lib/api';
 import Page from '../components/page';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const about = await fetchAbout();
 
   return {
@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const About = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const About = ({ about }: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Page seo={about.seo}>
 
     <Box
