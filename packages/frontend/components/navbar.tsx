@@ -36,7 +36,7 @@ const Navbar: NextComponentType = () => {
       height="150px"
       sx={{
         position: 'relative',
-        zIndex: 1,
+        zIndex: `${isActive ? '20' : '1'}`,
       }}
       ref={ref}
     >
