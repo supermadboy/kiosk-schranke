@@ -54,7 +54,12 @@ const Navbar: NextComponentType = () => {
           borderWidth: ['1px', '0'],
           a: {
             marginBottom: [2, 0],
-            marginRight: [0, 2],
+            marginRight: [0, 4],
+            fontSize: [0, 1],
+            fontWeight: ['normal', 'bold'],
+            ':hover': {
+              textDecoration: 'underline',
+            },
           },
         }}
         flexDirection={['column', 'row']}
