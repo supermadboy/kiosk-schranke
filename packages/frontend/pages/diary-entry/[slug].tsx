@@ -24,19 +24,8 @@ const Article = ({ article }: InferGetServerSidePropsType<typeof getServerSidePr
       mb={7}
     >
       <Text
-        variant="big"
-        as="h1"
-      >
-        WAS?
-      </Text>
-    </Box>
-
-    <Box
-      mb={7}
-    >
-      <Text
         as="p"
-        variant="small"
+        variant="normal"
       >
         { (new Date(article.published_at)).toLocaleDateString('de-DE')}
       </Text>
@@ -51,7 +40,7 @@ const Article = ({ article }: InferGetServerSidePropsType<typeof getServerSidePr
     <Box
       mb={7}
     >
-      <Image src={article.image?.url ? getStrapiURL(article.image.url) : '/platzhalter.svg'} width={200} height={100} layout="responsive" />
+      <Image src={article.image?.url ? getStrapiURL(article.image.url) : '/platzhalter.svg'} width={193} height={100} layout="responsive" />
     </Box>
 
     <ReactMarkdown>

@@ -36,7 +36,7 @@ const Navbar: NextComponentType = () => {
       height="150px"
       sx={{
         position: 'relative',
-        zIndex: [1, 0],
+        zIndex: 1,
       }}
       ref={ref}
     >
@@ -53,9 +53,9 @@ const Navbar: NextComponentType = () => {
           borderBottom: '1px solid black',
           borderWidth: ['1px', '0'],
           a: {
-            marginBottom: [2, 0],
-            marginRight: [0, 4],
-            fontSize: [0, 1],
+            marginBottom: [4, 0],
+            marginRight: [0, 7],
+            fontSize: [1, 2],
             fontWeight: ['normal', 'bold'],
             ':hover': {
               textDecoration: 'underline',
@@ -81,7 +81,7 @@ const Navbar: NextComponentType = () => {
           zIndex: 1,
           position: 'relative',
         }}
-        bg="primaryBg"
+        bg={['primaryBg', 'transparent']}
       >
         <NavLink href="/">
           <Image src="/logo.gif" width="160px" height="120px" objectFit="contain" />

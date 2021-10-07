@@ -23,12 +23,11 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
       flexDirection="column"
       justifyContent="center"
       alignItems={['normal', 'center']}
-      mt={[0, '-100px']}
+      mt={[0, '-130px']}
     >
       <Box
         pr={[8, 0]}
-        mb={[7, '-40px']}
-        maxWidth="1200px"
+        mb={[7, '-70px']}
       >
         <Box
           sx={{
@@ -42,14 +41,14 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
             display: ['block', 'none'],
           }}
         >
-          <Image src="/platzhalter_idee.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
+          <Image src="/platzhalter_kiosk.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
         </Box>
 
       </Box>
 
       <Box
         pr={[13, 0]}
-        mb={['-40px']}
+        mb={['-40px', '-60px']}
       >
         <Box
           sx={{

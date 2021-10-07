@@ -21,17 +21,11 @@ const Impressum = ({ impressum }: InferGetServerSidePropsType<typeof getServerSi
       minHeight="calc(100vh - 170px)"
       flexDirection="column"
       justifyContent="space-between"
+      maxWidth="1200px"
     >
       <Box
         mb={7}
-      >
-        <Text
-          variant="big"
-          as="h1"
-        >
-          WO?
-        </Text>
-      </Box>
+      />
 
       <Box
         mb={7}

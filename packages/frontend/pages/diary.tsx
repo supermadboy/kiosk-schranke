@@ -1,7 +1,7 @@
 import type { InferGetServerSidePropsType } from 'next';
 import ReactMarkdown from 'react-markdown';
 import {
-  Box, Text,
+  Box,
 } from 'rebass/styled-components';
 import { fetchArticles, fetchDiary } from '../lib/api';
 import Page from '../components/page';
@@ -27,17 +27,6 @@ const Diary = ({ diary, articles }: InferGetServerSidePropsType<typeof getServer
     <Box
       mb={7}
     >
-      <Text
-        variant="big"
-        as="h1"
-      >
-        WAS?
-      </Text>
-    </Box>
-
-    <Box
-      mb={7}
-    >
       <ReactMarkdown>
         {diary.content}
       </ReactMarkdown>
@@ -47,6 +36,7 @@ const Diary = ({ diary, articles }: InferGetServerSidePropsType<typeof getServer
       sx={{
         display: 'grid',
         gridGap: [3],
+        rowGap: [5],
         gridTemplateColumns: ['1fr 1fr'],
       }}
     >

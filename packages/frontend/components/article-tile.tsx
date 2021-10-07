@@ -1,6 +1,6 @@
 import PropTypes, { InferProps } from 'prop-types';
 import { FunctionComponent } from 'react';
-import { Card, Text, Box } from 'rebass/styled-components';
+import { Card, Text } from 'rebass/styled-components';
 import Image from 'next/image';
 import { getStrapiURL } from '../lib/api';
 
@@ -23,47 +23,40 @@ const ArticleTile: FunctionComponent<InferProps<typeof ArticleTilePropTypes>> = 
     <Card
       sx={{
         cursor: 'pointer',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        height: '100%',
       }}
     >
-      <Box>
-        <Text
-          as="p"
-          variant="small"
-        >
-          { (new Date(publishDate)).toLocaleDateString('de-DE') }
-        </Text>
+      <Text
+        as="p"
+        variant="normal"
+      >
+        { (new Date(publishDate)).toLocaleDateString('de-DE') }
+      </Text>
 
-        <Image src={imageUrl ? getStrapiURL(imageUrl) : '/platzhalter.svg'} width={200} height={100} layout="responsive" />
+      <Image src={imageUrl ? getStrapiURL(imageUrl) : '/platzhalter.svg'} width={192} height={100} layout="responsive" />
 
-        <Text
-          mt={2}
-          as="p"
-          variant="normal"
-        >
-          {title}
-        </Text>
-      </Box>
+      <Text
+        mt={2}
+        as="p"
+        variant="normal"
+        fontWeight="bold"
+      >
+        {title}
+      </Text>
 
-      <Box>
-        <Text
-          as="p"
-          variant="small"
-        >
-          {description}
-        </Text>
+      <Text
+        as="p"
+        variant="normal"
+      >
+        {description}
+      </Text>
 
-        <Text
-          as="p"
-          variant="small"
-          fontWeight="bold"
-        >
-          ...mehr
-        </Text>
-      </Box>
+      <Text
+        as="p"
+        variant="normal"
+        fontWeight="bold"
+      >
+        ...mehr
+      </Text>
     </Card>
   </a>
 );

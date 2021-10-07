@@ -1,6 +1,6 @@
 import type { InferGetServerSidePropsType } from 'next';
 import {
-  Box, Text,
+  Box,
 } from 'rebass/styled-components';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
@@ -21,28 +21,6 @@ const About = ({ about }: InferGetServerSidePropsType<typeof getServerSideProps>
   <Page seo={about.seo}>
 
     <Box
-      mb={7}
-    >
-      <Text
-        variant="big"
-        as="h1"
-      >
-        WER?
-      </Text>
-    </Box>
-
-    <Box
-      pr={8}
-      mb={7}
-      maxWidth="700px"
-      sx={{
-        display: ['block', 'none'],
-      }}
-    >
-      <Image src="/platzhalter_idee.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
-    </Box>
-
-    <Box
       m={[0, 'auto']}
       mb={[7, 7]}
       maxWidth="700px"
@@ -55,7 +33,18 @@ const About = ({ about }: InferGetServerSidePropsType<typeof getServerSideProps>
       </ReactMarkdown>
     </Box>
 
-    <Image src="/platzhalter_foto.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
+    <Box
+      pr={8}
+      mb={7}
+      maxWidth="700px"
+      sx={{
+        display: ['block', 'none'],
+      }}
+    >
+      <Image src="/platzhalter_foto.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
+    </Box>
+
+    <Image src="/platzhalter_idee.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
 
   </Page>
 );

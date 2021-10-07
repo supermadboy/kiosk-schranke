@@ -29,7 +29,12 @@ const Page: FunctionComponent<InferProps<typeof PagePropTypes>> = (
       }
     </Head>
 
-    {children}
+    <Box
+      maxWidth="1000px"
+      margin="auto"
+    >
+      {children}
+    </Box>
   </Box>
 );
 
