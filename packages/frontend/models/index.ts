@@ -29,6 +29,8 @@ interface Seo {
 export interface Homepage {
   content: string;
   seo: Seo;
+  popupEnabled: boolean;
+  popupText: string;
 }
 
 export interface Diary {

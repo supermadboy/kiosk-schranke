@@ -33,6 +33,14 @@ const theme: DefaultTheme = {
       marginBottom: 0,
     },
   },
+  buttons: {
+    primary: {
+      bg: 'primaryBg',
+      color: 'text',
+      border: '1px solid black',
+      borderRadius: '0',
+    },
+  },
   variants: {
     bigLink: {
       fontSize: 2,

@@ -30,12 +30,20 @@ declare module 'styled-components' {
         marginBottom: number,
       }
     },
+    buttons: {
+      primary: {
+        bg: string,
+        color: string,
+        border: string,
+        borderRadius: string,
+      }
+    }
     variants: {
       bigLink: {
         fontSize: number,
         textDecorationLine: 'underline',
         fontWeight: 'bold',
-      },
+      }
     }
   }
 }

@@ -68,7 +68,7 @@ const Impressum = ({ impressum }: InferGetServerSidePropsType<typeof getServerSi
           <Text
             as="p"
           >
-            <b>Konzept &amp; Gestalgung:</b>
+            <b>Konzept &amp; Gestaltung:</b>
             {' '}
             Selina Vix
           </Text>

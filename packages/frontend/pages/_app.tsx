@@ -5,6 +5,7 @@ import theme from '../styles/theme';
 import '../styles/menu-button.css';
 import '../styles/basic-styles.css';
 import '../styles/fonts.css';
+import '../styles/popup.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

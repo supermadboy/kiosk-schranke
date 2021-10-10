@@ -1,6 +1,6 @@
 import type { InferGetServerSidePropsType } from 'next';
 import {
-  Box,
+  Box, Flex,
 } from 'rebass/styled-components';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
@@ -20,31 +20,25 @@ export const getServerSideProps = async () => {
 const About = ({ about }: InferGetServerSidePropsType<typeof getServerSideProps>) => (
   <Page seo={about.seo}>
 
-    <Box
-      m={[0, 'auto']}
-      mb={[7, 7]}
-      maxWidth="700px"
-      sx={{
-        textAlign: ['left', 'center'],
-      }}
+    <Flex
+      flexDirection={['column', 'column-reverse']}
     >
-      <ReactMarkdown>
-        {about.content}
-      </ReactMarkdown>
-    </Box>
 
-    <Box
-      pr={8}
-      mb={7}
-      maxWidth="700px"
-      sx={{
-        display: ['block', 'none'],
-      }}
-    >
-      <Image src="/platzhalter_foto.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
-    </Box>
+      <Box
+        m={[0, 'auto']}
+        mb={[7, 7]}
+        maxWidth="700px"
+        sx={{
+          textAlign: ['left', 'center'],
+        }}
+      >
+        <ReactMarkdown>
+          {about.content}
+        </ReactMarkdown>
+      </Box>
 
-    <Image src="/platzhalter_idee.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
+      <Image src="/platzhalter_idee.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
+    </Flex>
 
   </Page>
 );

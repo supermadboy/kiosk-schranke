@@ -1,6 +1,6 @@
 {
   "kind": "singleType",
-  "collectionName": "",
+  "collectionName": "homepage",
   "info": {
     "name": "Homepage",
     "description": ""
@@ -19,6 +19,15 @@
       "required": true
     },
     "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "popupEnabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "popupText": {
       "type": "richtext",
       "required": true
     }

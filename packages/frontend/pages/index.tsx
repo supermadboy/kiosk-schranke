@@ -1,10 +1,12 @@
 import type { InferGetServerSidePropsType } from 'next';
 import {
-  Box, Flex,
+  Box, Flex, Button,
 } from 'rebass/styled-components';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import CanvasDraw from 'react-canvas-draw';
+import Popup from 'reactjs-popup';
+import { useEffect, useState } from 'react';
 import { fetchHomepage } from '../lib/api';
 import Page from '../components/page';
 
@@ -21,6 +23,19 @@ export const getServerSideProps = async () => {
 const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   // eslint-disable-next-line
   let canvas: any;
+
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (homepage.popupEnabled && !document.cookie.includes('referral_key=popup')) {
+      setOpen(true);
+    }
+  }, [homepage.popupEnabled]);
+
+  const closePopup = () => {
+    document.cookie = 'referral_key=popup;max-age=7200;';
+    setOpen(false);
+  };
 
   return (
     <Page seo={homepage.seo}>
@@ -54,6 +69,16 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
             }}
           >
             <Image src="/schraenkle.svg" width={1000} height={666} />
+            <Box
+              sx={{
+                position: 'absolute',
+                right: '0',
+                bottom: '10px',
+              }}
+            >
+              <Image src="/draw_icon.svg" width={80} height={80} />
+
+            </Box>
             <CanvasDraw
               ref={(canvasDraw: any) => {
                 canvas = canvasDraw;
@@ -109,6 +134,40 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
         </Box>
       </Flex>
 
+      <Popup open={open}>
+        <Flex
+          mx={6}
+          p={[2]}
+          sx={{
+            border: '1px solid black',
+            maxWidth: '450px',
+          }}
+          flexDirection="column"
+          backgroundColor="primaryBg"
+        >
+          <Button
+            variant="primary"
+            p={2}
+            sx={{
+              alignSelf: 'flex-end',
+              cursor: 'pointer',
+              width: '20px',
+              height: '20px',
+              outline: 'none',
+              background: 'linear-gradient(to top left,rgba(0,0,0,0) 0%,rgba(0,0,0,0) calc(50% - 0.8px),rgba(0,0,0,1) 50%,rgba(0,0,0,0) calc(50% + 0.8px),rgba(0,0,0,0) 100%),linear-gradient(to top right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) calc(50% - 0.8px),rgba(0,0,0,1) 50%,rgba(0,0,0,0) calc(50% + 0.8px),rgba(0,0,0,0) 100%)',
+            }}
+            onClick={() => closePopup()}
+          />
+
+          <Box
+            m={[2]}
+          >
+            <ReactMarkdown>
+              { homepage.popupText }
+            </ReactMarkdown>
+          </Box>
+        </Flex>
+      </Popup>
     </Page>
   );
 };
