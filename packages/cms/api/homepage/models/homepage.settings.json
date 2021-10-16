@@ -30,6 +30,10 @@
     "popupText": {
       "type": "richtext",
       "required": true
+    },
+    "newsLetterText": {
+      "type": "text",
+      "required": true
     }
   }
 }

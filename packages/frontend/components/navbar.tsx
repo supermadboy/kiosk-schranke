@@ -9,6 +9,7 @@ import NavLink from './basic/navlink';
 
 const Navbar: NextComponentType = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const ref = useRef<HTMLElement>();
 
   const toggleMenu = () => {
@@ -24,11 +25,18 @@ const Navbar: NextComponentType = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
+    setIsDesktop(window.innerWidth > 800);
+
+    if (isDesktop) {
+      setIsActive(true);
+    } else {
+      document.addEventListener('click', handleClickOutside, true);
+    }
+
     return () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
-  });
+  }, [isDesktop]);
 
   return (
     <Flex
@@ -48,7 +56,7 @@ const Navbar: NextComponentType = () => {
           position: 'absolute',
           top: ['150px', '0'],
           transform: `translatey(${isActive ? '0' : '-100%'})`,
-          transition: '1s transform',
+          transition: `${!isDesktop ? '1s transform' : ''}`,
           zIndex: [1, 2],
           borderBottom: '1px solid black',
           borderWidth: ['1px', '0'],
@@ -68,7 +76,7 @@ const Navbar: NextComponentType = () => {
         bg={['primaryBg', 'transparent']}
       >
         <NavLink href="/">Home</NavLink>
-        <NavLink href="/about">Über uns</NavLink>
+        <NavLink href="/about">Konzept</NavLink>
         <NavLink href="/diary">Tagebuch</NavLink>
         <NavLink href="/impressum">Impressum</NavLink>
       </Flex>

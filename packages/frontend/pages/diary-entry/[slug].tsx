@@ -40,7 +40,7 @@ const Article = ({ article }: InferGetServerSidePropsType<typeof getServerSidePr
     <Box
       mb={7}
     >
-      <Image src={article.image?.url ? getStrapiURL(article.image.url) : '/platzhalter.svg'} width={70} height={52} layout="responsive" />
+      <Image src={article.image?.url ? getStrapiURL(article.image.url) : '/platzhalter.svg'} width={70} height={52} layout="responsive" objectFit="contain" />
     </Box>
 
     <ReactMarkdown>

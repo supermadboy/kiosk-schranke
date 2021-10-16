@@ -32,7 +32,7 @@ const ArticleTile: FunctionComponent<InferProps<typeof ArticleTilePropTypes>> = 
         { (new Date(publishDate)).toLocaleDateString('de-DE') }
       </Text>
 
-      <Image src={imageUrl ? getStrapiURL(imageUrl) : '/platzhalter.svg'} width={70} height={52} layout="responsive" />
+      <Image src={imageUrl ? getStrapiURL(imageUrl) : '/platzhalter.svg'} width={70} height={52} layout="responsive" objectFit={imageUrl ? 'cover' : 'initial'} />
 
       <Text
         mt={2}

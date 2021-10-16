@@ -31,6 +31,7 @@ export interface Homepage {
   seo: Seo;
   popupEnabled: boolean;
   popupText: string;
+  newsLetterText: string;
 }
 
 export interface Diary {
