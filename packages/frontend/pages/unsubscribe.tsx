@@ -1,22 +1,14 @@
-import type { InferGetServerSidePropsType } from 'next';
 import {
   Button, Flex, Box,
 } from 'rebass/styled-components';
-import { fetchImpressum } from '../lib/api';
 import Page from '../components/page';
 
-export const getServerSideProps = async () => {
-  const impressum = await fetchImpressum();
-
-  return {
-    props: {
-      impressum,
-    },
-  };
-};
-
-const Unsubscribe = ({ impressum }: InferGetServerSidePropsType<typeof getServerSideProps>) => (
-  <Page seo={impressum.seo}>
+const Unsubscribe = () => (
+  <Page seo={{
+    metaDescription: 'Melde dich hier von dem Kiosk ab',
+    metaTitle: 'Unsubscribe',
+  }}
+  >
     <Flex
       minHeight="calc(100vh - 170px)"
       flexDirection="column"

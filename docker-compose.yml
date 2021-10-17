@@ -8,6 +8,8 @@ services:
       - 1337:1337
     volumes:
       - .tmp:/app/.tmp
+      - .cmsData:/app/data
+      - .cmsPublic:/app/public
   frontend:
     container_name: schranke_frontend
     build:

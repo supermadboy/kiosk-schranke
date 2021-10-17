@@ -9,7 +9,6 @@ import Popup from 'reactjs-popup';
 import { useEffect, useState } from 'react';
 import { fetchHomepage } from '../lib/api';
 import Page from '../components/page';
-import NewsletterRegistration from '../components/newsletter';
 
 export const getServerSideProps = async () => {
   const homepage = await fetchHomepage();
@@ -135,9 +134,6 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
           <Box
             my={6}
           />
-          <NewsletterRegistration>
-            {homepage.newsLetterText}
-          </NewsletterRegistration>
         </Box>
       </Flex>
 

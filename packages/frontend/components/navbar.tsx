@@ -9,7 +9,6 @@ import NavLink from './basic/navlink';
 
 const Navbar: NextComponentType = () => {
   const [isActive, setIsActive] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
   const ref = useRef<HTMLElement>();
 
   const toggleMenu = () => {
@@ -25,18 +24,12 @@ const Navbar: NextComponentType = () => {
   };
 
   useEffect(() => {
-    setIsDesktop(window.innerWidth > 800);
-
-    if (isDesktop) {
-      setIsActive(true);
-    } else {
-      document.addEventListener('click', handleClickOutside, true);
-    }
+    document.addEventListener('click', handleClickOutside, true);
 
     return () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
-  }, [isDesktop]);
+  });
 
   return (
     <Flex
@@ -56,7 +49,7 @@ const Navbar: NextComponentType = () => {
           position: 'absolute',
           top: ['150px', '0'],
           transform: `translatey(${isActive ? '0' : '-100%'})`,
-          transition: `${!isDesktop ? '1s transform' : ''}`,
+          transition: '1s transform',
           zIndex: [1, 2],
           borderBottom: '1px solid black',
           borderWidth: ['1px', '0'],
