@@ -1,6 +1,8 @@
 import {
-  Button, Flex, Box,
+  Button, Flex, Box, Text,
 } from 'rebass/styled-components';
+import { Input, Radio, Label } from '@rebass/forms';
+
 import Page from '../components/page';
 
 const Unsubscribe = () => (
@@ -16,19 +18,47 @@ const Unsubscribe = () => (
       maxWidth="1200px"
     >
       <form action="https://ml.kundenserver.de/cgi-bin/mailinglist.cgi" method="POST" target="_blank">
-        <input checked name="subscribe_r" type="radio" value="subscribe" />
-        Ja, ich möchte mich auf die Mailingliste newsletter@kulturkiosk-schranke.de.
+        <Label>
+          <Radio checked name="subscribe_r" type="radio" value="subscribe" />
+          Ja, ich möchte mich auf die Mailingliste newsletter@kulturkiosk-schranke.de.
+        </Label>
+
+        <Label>
+          <Radio name="subscribe_r" type="radio" value="unsubscribe" />
+          Bitte streiche mich wieder von der Mailingliste newsletter@kulturkiosk-schranke.de.
+        </Label>
         <br />
-        <input name="subscribe_r" type="radio" value="unsubscribe" />
-        Bitte streichen Sie mich wieder von der Mailingliste newsletter@kulturkiosk-schranke.de.
+        <Text
+          as="p"
+          mb={2}
+          fontWeight="bold"
+        >
+          Gebe deine E-Mail-Adresse ein:
+        </Text>
+        <Input
+          name="mailaccount_r"
+          type="text"
+          sx={{
+            maxWidth: '400px',
+          }}
+        />
         <br />
-        Geben Sie Ihre E-Mail-Adresse ein:
         <br />
-        <input name="mailaccount_r" type="text" />
+        <Text
+          as="p"
+          fontWeight="bold"
+          mb={2}
+        >
+          Wiederhole deine eingegebene E-Mail-Adresse:
+        </Text>
+        <Input
+          name="mailaccount2_r"
+          type="text"
+          sx={{
+            maxWidth: '400px',
+          }}
+        />
         <br />
-        Wiederholen Sie die eingegebene E-Mail-Adresse:
-        <br />
-        <input name="mailaccount2_r" type="text" />
         <br />
         <Box
           my={2}

@@ -9,6 +9,7 @@ import Popup from 'reactjs-popup';
 import { useEffect, useState } from 'react';
 import { fetchHomepage } from '../lib/api';
 import Page from '../components/page';
+import NewsletterRegistration from '../components/newsletter';
 
 export const getServerSideProps = async () => {
   const homepage = await fetchHomepage();
@@ -132,8 +133,11 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
             {homepage.content}
           </ReactMarkdown>
           <Box
-            my={6}
+            my={[8, 10]}
           />
+          <NewsletterRegistration>
+            {homepage.newsLetterText}
+          </NewsletterRegistration>
         </Box>
       </Flex>
 

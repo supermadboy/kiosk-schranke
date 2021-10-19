@@ -4,6 +4,7 @@ import {
   Flex, Button, Text, Box,
 } from 'rebass/styled-components';
 import PropTypes from 'prop-types';
+import { Input, Label } from '@rebass/forms';
 
 const NewsletterRegistration: NextComponentType = ({ children }) => {
   const [email, setEmail] = useState('');
@@ -84,32 +85,41 @@ const NewsletterRegistration: NextComponentType = ({ children }) => {
   return (
     <Flex
       flexDirection="column"
-      alignItems="center"
     >
       <Box
         mb={2}
       >
         <Text
           as="p"
+          mb={[3]}
         >
           {children}
         </Text>
-        <label htmlFor="email">
+        <Label
+          mb={[3]}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
           Email:&nbsp;
-          <input
+          <Input
             value={email}
-            onInput={(e) => setEmail((e.target as HTMLInputElement).value)}
+            onInput={(e: any) => setEmail((e.target as HTMLInputElement).value)}
             id="email"
             name="email"
             type="email"
-            placeholder="mail@exmaple.com"
+            placeholder="mail@beispiel.com"
           />
-        </label>
+        </Label>
       </Box>
 
       <Button
         width="fit-content"
         onClick={() => registerForNewsletter()}
+        sx={{
+          alignSelf: ['initial', 'center'],
+        }}
       >
         Anmelden
       </Button>
