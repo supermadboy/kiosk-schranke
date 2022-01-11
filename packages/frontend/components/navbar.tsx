@@ -81,11 +81,12 @@ const Navbar: NextComponentType = () => {
         sx={{
           zIndex: 1,
           position: 'relative',
+          alignSelf: 'baseline',
         }}
         bg={['primaryBg', 'transparent']}
       >
         <NavLink href="/">
-          <Image src="/logo.gif" width="160px" height="120px" objectFit="contain" />
+          <Image src="/logo_new.gif" width="160px" height="60px" objectFit="contain" />
         </NavLink>
       </Box>
       <Box
