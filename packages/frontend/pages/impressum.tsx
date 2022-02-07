@@ -65,6 +65,22 @@ const Impressum = ({ impressum }: InferGetServerSidePropsType<typeof getServerSi
         <Text
           as="p"
         >
+          <b>Gestaltung:</b>
+          {' '}
+          Selina Vix
+        </Text>
+
+        <Text
+          as="p"
+        >
+          <b>Fotografien:</b>
+          {' '}
+          Julia Stepper
+        </Text>
+
+        <Text
+          as="p"
+        >
           <b>Programmierung:</b>
           {' '}
           Markus Szarvas

@@ -1,10 +1,10 @@
 import { NextComponentType } from 'next';
 import { useState } from 'react';
 import {
-  Flex, Button, Text, Box,
+  Flex, Button, Text,
 } from 'rebass/styled-components';
 import PropTypes from 'prop-types';
-import { Input, Label } from '@rebass/forms';
+import { Input } from '@rebass/forms';
 
 const NewsletterRegistration: NextComponentType = ({ children }) => {
   const [email, setEmail] = useState('');
@@ -84,45 +84,54 @@ const NewsletterRegistration: NextComponentType = ({ children }) => {
 
   return (
     <Flex
-      flexDirection="column"
+      mb={2}
+      alignItems="center"
+      flexDirection={['column', 'row']}
     >
-      <Box
-        mb={2}
+      <Text
+        as="p"
+        mr={2}
+        mb={[2, 0]}
       >
-        <Text
-          as="p"
-          mb={[3]}
-        >
-          {children}
-        </Text>
-        <Label
-          mb={[3]}
+        {children}
+      </Text>
+
+      <Flex
+        flexGrow={1}
+      >
+
+        <Input
+          width="auto"
+          value={email}
+          mr={2}
           sx={{
-            display: 'flex',
-            alignItems: 'center',
+            flexGrow: 1,
+            borderWidth: '2px',
+            borderStyle: 'solid',
+            borderColor: '#b2bfbd',
+            borderRadius: '999px',
+          }}
+          onInput={(e: any) => setEmail((e.target as HTMLInputElement).value)}
+          id="email"
+          name="email"
+          type="email"
+          placeholder="mail@beispiel.com"
+        />
+
+        <Button
+          width="fit-content"
+          onClick={() => registerForNewsletter()}
+          sx={{
+            alignSelf: ['initial', 'center'],
+            backgroundColor: '#b2bfbd',
+            borderColor: '#b2bfbd',
+            borderRadius: '999px',
+            fontWeight: 'bold',
           }}
         >
-          Email:&nbsp;
-          <Input
-            value={email}
-            onInput={(e: any) => setEmail((e.target as HTMLInputElement).value)}
-            id="email"
-            name="email"
-            type="email"
-            placeholder="mail@beispiel.com"
-          />
-        </Label>
-      </Box>
-
-      <Button
-        width="fit-content"
-        onClick={() => registerForNewsletter()}
-        sx={{
-          alignSelf: ['initial', 'center'],
-        }}
-      >
-        Anmelden
-      </Button>
+          Anmelden
+        </Button>
+      </Flex>
     </Flex>
   );
 };

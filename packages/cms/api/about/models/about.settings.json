@@ -21,6 +21,10 @@
     "content": {
       "type": "richtext",
       "required": true
+    },
+    "extraInformation": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

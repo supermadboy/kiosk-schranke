@@ -26,6 +26,12 @@ const Diary = ({ diary, articles }: InferGetServerSidePropsType<typeof getServer
 
     <Box
       mb={7}
+      pt={4}
+      sx={{
+        p: {
+          marginTop: 0,
+        },
+      }}
     >
       <ReactMarkdown>
         {diary.content}

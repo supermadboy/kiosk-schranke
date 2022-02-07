@@ -34,6 +34,10 @@
     "newsLetterText": {
       "type": "text",
       "required": true
+    },
+    "openingHours": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

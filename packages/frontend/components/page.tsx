@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react';
 import { Box } from 'rebass/styled-components';
 import Head from 'next/head';
 import { getStrapiURL } from '../lib/api';
+import NavLink from './basic/navlink';
 
 const PagePropTypes = {
   seo: PropTypes.shape({
@@ -16,7 +17,7 @@ const PagePropTypes = {
 const Page: FunctionComponent<InferProps<typeof PagePropTypes>> = (
   { seo, children },
 ) => (
-  <Box>
+  <>
     <Head>
       <title>
         Kiosk Schranke |
@@ -31,11 +32,34 @@ const Page: FunctionComponent<InferProps<typeof PagePropTypes>> = (
 
     <Box
       maxWidth="1000px"
-      margin="auto"
+      flexGrow={1}
+      sx={{
+        margin: 'auto',
+        marginBottom: '40px',
+      }}
     >
       {children}
     </Box>
-  </Box>
+    <Box
+      sx={{
+        position: 'absolute',
+        bottom: 0,
+        height: '40px',
+        zIndex: [2],
+        a: {
+          marginRight: [3],
+          fontWeight: 'bold',
+          ':hover': {
+            textDecoration: 'underline',
+          },
+        },
+      }}
+    >
+      <NavLink href="/impressum">Impressum</NavLink>
+      <NavLink href="https://www.instagram.com/kulturkiosk_schranke/">Instagram</NavLink>
+      <NavLink href="mailto:info@kulturkiosk-schranke.de">Kontakt</NavLink>
+    </Box>
+  </>
 );
 
 Page.propTypes = PagePropTypes;

@@ -30,6 +30,11 @@ const Layout: NextComponentType = ({ children }) => (
       as="main"
       px={4}
       pb={4}
+      backgroundColor="primaryBg"
+      flexGrow={1}
+      sx={{
+        position: 'relative',
+      }}
     >
       {children}
     </Box>

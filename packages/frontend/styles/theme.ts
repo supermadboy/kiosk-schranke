@@ -2,9 +2,11 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   colors: {
-    primaryBg: '#fff',
+    primaryBg: '#fff6e6',
+    secondaryBg: '#b2bfbd',
     dark: '#000',
     text: '#000',
+    secondaryColor: '#b2bfbd',
   },
   fontSizes: [
     '.75rem', '1rem', '1.5rem', '1.75rem', '2rem', '2.5rem', '3rem', '4rem',

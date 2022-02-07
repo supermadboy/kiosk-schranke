@@ -32,6 +32,7 @@ export interface Homepage {
   popupEnabled: boolean;
   popupText: string;
   newsLetterText: string;
+  openingHours: string;
 }
 
 export interface Diary {
@@ -42,6 +43,7 @@ export interface Diary {
 export interface About {
   content: string;
   seo: Seo;
+  extraInformation: string;
 }
 
 export interface Impressum {

@@ -1,12 +1,13 @@
 import type { InferGetServerSidePropsType } from 'next';
 import {
-  Box, Flex, Button,
+  Box, Flex, Button, Link,
 } from 'rebass/styled-components';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import CanvasDraw from 'react-canvas-draw';
 import Popup from 'reactjs-popup';
 import { useEffect, useState } from 'react';
+import Slider from 'react-slick';
 import { fetchHomepage } from '../lib/api';
 import Page from '../components/page';
 import NewsletterRegistration from '../components/newsletter';
@@ -26,6 +27,13 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
   let canvas: any;
 
   const [open, setOpen] = useState(false);
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   useEffect(() => {
     if (homepage.popupEnabled && !document.cookie.includes('referral_key=popup')) {
@@ -44,15 +52,168 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
         flexDirection="column"
         justifyContent="center"
         alignItems={['normal', 'center']}
-        mt={[0, '-130px']}
       >
         <Box
-          pr={[8, 0]}
-          mb={[7, '-70px']}
+          mb={7}
+          maxWidth="100%"
         >
+          <Box
+            my={8}
+            className="customSlider"
+          >
+            <Slider {...sliderSettings}>
+              <div>
+                <Image src="/slide1.jpeg" width={1400} height={771} />
+              </div>
+              <div>
+                <Image src="/slide2.jpeg" width={1400} height={771} />
+              </div>
+              <div>
+                <Image src="/slide3.jpeg" width={1400} height={771} />
+              </div>
+              <div>
+                <Image src="/slide4.jpeg" width={1400} height={771} />
+              </div>
+              <div>
+                <Image src="/slide5.jpeg" width={1400} height={771} />
+              </div>
+              <div>
+                <Image src="/slide6.jpeg" width={1400} height={771} />
+              </div>
+            </Slider>
+          </Box>
+
+          <Box
+            mb={7}
+          >
+            <NewsletterRegistration>
+              {homepage.newsLetterText}
+            </NewsletterRegistration>
+          </Box>
+
+          <Box
+            display="grid"
+            sx={{
+              gridTemplateColumns: ['1fr', '1fr 1fr'],
+              'grid-gap': '24px',
+            }}
+          >
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{
+                borderWidth: '2px',
+                borderStyle: 'solid',
+                borderColor: '#b2bfbd',
+                borderRadius: '15px',
+                p: {
+                  textAlign: 'center',
+                },
+              }}
+              p={3}
+            >
+              <ReactMarkdown>
+                { homepage.openingHours }
+              </ReactMarkdown>
+            </Flex>
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{
+                borderWidth: '2px',
+                borderStyle: 'solid',
+                borderColor: '#b2bfbd',
+                borderRadius: '15px',
+                backgroundColor: '#b2bfbd',
+              }}
+              p={3}
+            >
+              <Box
+                mb={1}
+              >
+                <Image src="/konzept.svg" width={150} height={100} />
+
+              </Box>
+              <Link
+                px={2}
+                minWidth="120px"
+                textAlign="center"
+                sx={{
+                  backgroundColor: 'primaryBg',
+                  borderRadius: '10px',
+                }}
+                href="/Infoflyer_JPG.jpg"
+              >
+                mehr
+              </Link>
+            </Flex>
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{
+                borderWidth: '2px',
+                borderStyle: 'solid',
+                borderColor: '#b2bfbd',
+                borderRadius: '15px',
+                backgroundColor: '#b2bfbd',
+              }}
+              p={3}
+            >
+              <Box
+                mb={1}
+              >
+                <Image src="/kreativ.svg" width={150} height={100} />
+
+              </Box>
+              <Link
+                px={2}
+                minWidth="120px"
+                textAlign="center"
+                sx={{
+                  backgroundColor: 'primaryBg',
+                  borderRadius: '10px',
+                }}
+                href="/creativity"
+              >
+                mehr
+              </Link>
+            </Flex>
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{
+                borderWidth: '2px',
+                borderStyle: 'solid',
+                borderColor: '#b2bfbd',
+                borderRadius: '15px',
+              }}
+              p={3}
+            >
+              <Box
+                mb={1}
+              >
+                <Image src="/kalender.svg" width={190} height={100} />
+
+              </Box>
+              <Link
+                px={2}
+                minWidth="120px"
+                textAlign="center"
+                sx={{
+                  backgroundColor: 'secondaryBg',
+                  borderRadius: '10px',
+                }}
+                href="/calendar"
+              >
+                Veranstaltungen
+              </Link>
+            </Flex>
+          </Box>
+
           <Box
             width="1000px"
             height="666px"
+            mt="4"
             sx={{
               display: ['none', 'block'],
               position: 'relative',
@@ -86,58 +247,13 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
               }}
               className="canvas"
               hideGrid
-              canvasWidth={1200}
-              canvasHeight={766}
+              canvasWidth={1000}
+              canvasHeight={666}
               brushRadius={2}
               brushColor="#000"
               lazyRadius={0}
             />
           </Box>
-          <Box
-            sx={{
-              display: ['block', 'none'],
-            }}
-          >
-            <Image src="/platzhalter_kiosk.svg" width={250} height={180} layout="responsive" objectFit="contain" objectPosition="left" />
-          </Box>
-
-        </Box>
-
-        <Box
-          pr={[13, 0]}
-          mb={['-40px', '-60px']}
-        >
-          <Box
-            sx={{
-              display: ['none', 'block'],
-            }}
-          >
-            <Image src="/hallo.svg" width={200} height={150} />
-          </Box>
-          <Box
-            sx={{
-              display: ['block', 'none'],
-            }}
-          >
-            <Image src="/hallo.svg" width={80} height={60} layout="responsive" objectFit="contain" objectPosition="left" />
-          </Box>
-        </Box>
-
-        <Box
-          maxWidth="800px"
-          sx={{
-            textAlign: ['start', 'center'],
-          }}
-        >
-          <ReactMarkdown>
-            {homepage.content}
-          </ReactMarkdown>
-          <Box
-            my={[8, 10]}
-          />
-          <NewsletterRegistration>
-            {homepage.newsLetterText}
-          </NewsletterRegistration>
         </Box>
       </Flex>
 
