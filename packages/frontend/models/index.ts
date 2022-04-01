@@ -33,6 +33,7 @@ export interface Homepage {
   popupText: string;
   newsLetterText: string;
   openingHours: string;
+  lunchMenu: string;
 }
 
 export interface Diary {

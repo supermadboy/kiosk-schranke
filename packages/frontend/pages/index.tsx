@@ -4,7 +4,6 @@ import {
 } from 'rebass/styled-components';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import CanvasDraw from 'react-canvas-draw';
 import Popup from 'reactjs-popup';
 import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
@@ -101,6 +100,7 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
             <Flex
               flexDirection="column"
               alignItems="center"
+              justifyContent="center"
               sx={{
                 borderWidth: '2px',
                 borderStyle: 'solid',
@@ -119,6 +119,7 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
             <Flex
               flexDirection="column"
               alignItems="center"
+              justifyContent="center"
               sx={{
                 borderWidth: '2px',
                 borderStyle: 'solid',
@@ -150,6 +151,7 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
             <Flex
               flexDirection="column"
               alignItems="center"
+              justifyContent="center"
               sx={{
                 borderWidth: '2px',
                 borderStyle: 'solid',
@@ -181,78 +183,22 @@ const Home = ({ homepage }: InferGetServerSidePropsType<typeof getServerSideProp
             <Flex
               flexDirection="column"
               alignItems="center"
+              justifyContent="center"
               sx={{
                 borderWidth: '2px',
                 borderStyle: 'solid',
                 borderColor: '#b2bfbd',
                 borderRadius: '15px',
+                p: {
+                  textAlign: 'center',
+                },
               }}
               p={3}
             >
-              <Box
-                mb={1}
-              >
-                <Image src="/kalender.svg" width={190} height={100} />
-
-              </Box>
-              <Link
-                px={2}
-                minWidth="120px"
-                textAlign="center"
-                sx={{
-                  backgroundColor: 'secondaryBg',
-                  borderRadius: '10px',
-                }}
-                href="/calendar"
-              >
-                Veranstaltungen
-              </Link>
+              <ReactMarkdown>
+                { homepage.lunchMenu }
+              </ReactMarkdown>
             </Flex>
-          </Box>
-
-          <Box
-            width="1000px"
-            height="666px"
-            mt="4"
-            sx={{
-              display: ['none', 'block'],
-              position: 'relative',
-              canvas: {
-                position: 'absolute',
-                left: '-100px',
-                top: '0',
-              },
-              '.canvas': {
-                position: 'absolute',
-                left: '0',
-                top: '0',
-                backgroundColor: 'transparent!important',
-              },
-            }}
-          >
-            <Image src="/schraenkle.svg" width={1000} height={666} />
-            <Box
-              sx={{
-                position: 'absolute',
-                right: '-40px',
-                bottom: '10px',
-              }}
-            >
-              <Image src="/draw_icon.svg" width={80} height={80} />
-
-            </Box>
-            <CanvasDraw
-              ref={(canvasDraw: any) => {
-                canvas = canvasDraw;
-              }}
-              className="canvas"
-              hideGrid
-              canvasWidth={1000}
-              canvasHeight={666}
-              brushRadius={2}
-              brushColor="#000"
-              lazyRadius={0}
-            />
           </Box>
         </Box>
       </Flex>

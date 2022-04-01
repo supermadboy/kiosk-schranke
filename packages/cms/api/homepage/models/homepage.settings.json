@@ -38,6 +38,10 @@
     "openingHours": {
       "type": "richtext",
       "required": true
+    },
+    "lunchMenu": {
+      "type": "richtext",
+      "required": true
     }
   }
 }
